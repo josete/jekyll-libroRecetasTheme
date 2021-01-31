@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="titulo">
+    <h1 class="ui center aligned header">{{page.title}}</h1>
+</div>
+<div class="contenido ui two column stackable grid">    
+    {% if page.ingredientes %}
+    <div class="column">
+        <h1 class="ui header">Ingredientes:</h1>
+        <div class="ui bulleted list">
+        {% for ingrediente in page.ingredientes %}
+            <div class="item">{{ ingrediente | markdownify }}</div>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% if page.pasos %}
+    <div class="column">
+        <h1 class="ui header">Pasos:</h1>
+        <div class="ui ordered list">
+        {% for paso in page.pasos %}
+            <div class="item">{{ paso | markdownify }}</div>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
