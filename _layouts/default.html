@@ -4,13 +4,15 @@
   {%- include head.html -%}
 
   <body>
-
+    {%- include navbar.html -%}
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
-
+  <script src="{{ "/assets/js/jquery-3.5.1.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/semantic.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/functions.js" | relative_url }}"></script>
   </body>
 
 </html>
