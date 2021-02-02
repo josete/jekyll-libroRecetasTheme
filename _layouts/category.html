@@ -17,10 +17,10 @@ layout: default
       {%- if page.list_title -%}
         <h2 class="post-list-heading">{{ page.list_title }}</h2>
       {%- endif -%}
-      <div class="recetas">
+      <div class="ui divided items recetas">
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {%- for post in posts -%}
-        <div class="ui segment">
+        <div class="item">
           <h1 class="ui header">
             <a class="post-link" href="{{ post.url | relative_url }}">
               {{ post.title | escape }}

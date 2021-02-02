@@ -1,19 +1,21 @@
 $('.ui.secondary.pointing.menu')
-.on('click', '.item', function(e) {
-  if(!$(this).hasClass('dropdown')) {
-    $(this)
-      .addClass('active')
-      .siblings('.item')
+  .on('click', '.item', function (e) {
+    if (!$(this).hasClass('dropdown')) {
+      $(this)
+        .addClass('active')
+        .siblings('.item')
         .removeClass('active');
-    localStorage.setItem('activeItem', $(e.target).attr('href'));
-  }
-});
+      localStorage.setItem('activeItem', $(e.target).attr('href'));
+    }
+  });
 
-$(document).ready(function(){
+$(document).ready(function () {
   var activeTab = localStorage.getItem('activeItem');
-    if(activeTab){      
-      $($('#'+activeTab.split("/")[2])).addClass('active')
-      .siblings('.item')
+  if (activeTab) {
+    if ($(location).attr('href').includes(activeTab)) {
+      $($('#' + activeTab.split("/")[2])).addClass('active')
+        .siblings('.item')
         .removeClass('active');
     }
+  }
 });
