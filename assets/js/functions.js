@@ -12,7 +12,8 @@ $('.ui.secondary.pointing.menu')
 $(document).ready(function(){
   var activeTab = localStorage.getItem('activeItem');
     if(activeTab){      
-      console.log($('.item a[href="' + activeTab + '"]'))
-        $('.item a[href="' + activeTab + '"]').addClass('active');
+      $($('#'+activeTab.split("/")[2])).addClass('active')
+      .siblings('.item')
+        .removeClass('active');
     }
 });
