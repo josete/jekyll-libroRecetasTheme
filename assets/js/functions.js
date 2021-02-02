@@ -1,6 +1,6 @@
 $('.ui.secondary.pointing.menu')
   .on('click', '.item', function (e) {
-    if (!$(this).hasClass('dropdown')) {
+    if (!$(this).hasClass('dropdown') && !$(this).hasClass('search')) {
       $(this)
         .addClass('active')
         .siblings('.item')
@@ -8,6 +8,7 @@ $('.ui.secondary.pointing.menu')
       localStorage.setItem('activeItem', $(e.target).attr('href'));
     }
   });
+
 
 $(document).ready(function () {
   var activeTab = localStorage.getItem('activeItem');
@@ -18,4 +19,15 @@ $(document).ready(function () {
         .removeClass('active');
     }
   }
+
+  $.getJSON('/search.json', function (data) {
+    localStorage.setItem('data', JSON.stringify(data));
+  });
+
 });
+
+$('#buscar')
+  .on('click',function (e) {
+    console.log($("#busqueda").val());
+    window.location = "http://localhost:4000/search/"+$("#busqueda").val();
+  });
