@@ -2,7 +2,7 @@ $(document).ready(function () {
     if ($(location).attr('href').includes("search")) {
         var busqueda = $(location).attr('href').split("/")[$(location).attr('href').split("/").length-1]
         const fuse = new Fuse(JSON.parse(localStorage.getItem('data')), {
-            keys: ['title']
+            keys: ['title','categories']
         });
 
         var resultados = fuse.search(busqueda);
